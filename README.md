@@ -1,5 +1,4 @@
-
-# Contact
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -27,7 +26,6 @@
     100% {background-position: 0% 50%;}
   }
 
-  /* === Контейнер === */
   .container {
     max-width: 500px;
     width: 90%;
@@ -56,7 +54,6 @@
     margin-bottom: 30px;
   }
 
-  /* === Ссылки === */
   .contacts a {
     display: block;
     margin: 10px 0;
@@ -69,19 +66,16 @@
     font-weight: 500;
     transition: 0.3s;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.5s forwards;
   }
 
   .contacts a:hover {
     background: #43a047;
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  }
-
-  /* === Анимация появления ссылок === */
-  .contacts a {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUp 0.5s forwards;
   }
 
   .contacts a:nth-child(1) {animation-delay: 0.2s;}
@@ -91,7 +85,6 @@
   @keyframes slideUp {
     to {opacity: 1; transform: translateY(0);}
   }
-
 </style>
 </head>
 <body>
