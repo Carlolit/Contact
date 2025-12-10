@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -27,6 +28,27 @@
     100% {background-position: 0% 50%;}
   }
 
+  /* === Кнопка музыки === */
+  .music-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 12px;
+    padding: 10px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.5);
+    z-index: 999;
+  }
+  .music-btn:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,1);
+  }
+
   /* === Переключатель языка === */
   .lang-switch {
     position: fixed;
@@ -41,6 +63,7 @@
     transition: 0.3s;
     backdrop-filter: blur(4px);
     border: 1px solid rgba(255,255,255,0.5);
+    z-index: 999;
   }
   .lang-switch:hover {
     transform: scale(1.05);
@@ -72,7 +95,6 @@
     color: #005cb2;
     text-shadow: 0 0 8px rgba(255,255,255,0.8);
   }
-
   p {
     font-size: 17px;
     margin-bottom: 30px;
@@ -91,18 +113,15 @@
     font-weight: 500;
     transition: 0.3s;
     box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-
     opacity: 0;
     transform: translateY(20px);
     animation: slideUp 0.5s forwards;
   }
-
   .contacts a:hover {
     background: linear-gradient(90deg, #b71c1c, #d32f2f);
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   }
-
   .contacts a:nth-child(1) {animation-delay: 0.2s;}
   .contacts a:nth-child(2) {animation-delay: 0.4s;}
   .contacts a:nth-child(3) {animation-delay: 0.6s;}
@@ -111,7 +130,7 @@
     to {opacity: 1; transform: translateY(0);}
   }
 
-  /* === Снегопад === */
+  /* === Снег === */
   .snowflake {
     position: fixed;
     top: -10px;
@@ -121,7 +140,6 @@
     animation: snowfall linear infinite;
     opacity: 0.8;
   }
-
   @keyframes snowfall {
     to {
       transform: translateY(110vh);
@@ -129,86 +147,19 @@
     }
   }
 </style>
-.music-btn {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background: rgba(255,255,255,0.85);
-  border-radius: 12px;
-  padding: 10px 18px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  transition: 0.3s;
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255,255,255,0.5);
-  z-index: 2000;
-}
-
-.music-btn:hover {
-  transform: scale(1.05);
-  background: rgba(255,255,255,1);
-}
 </head>
-
 <body>
-<!-- 🔔 КНОПКА МУЗЫКИ -->
+
+<!-- Музыка -->
 <div class="music-btn" onclick="toggleMusic()">🔔 Музыка</div>
-
-<!-- 🎵 НОВОГОДНЯЯ МЕЛОДИЯ -->
 <audio id="bgMusic" loop>
-  <source src="https://cdn.jsdelivr.net/gh/CarloLit/music/christmas.mp3" type="audio/mpeg">
+  <source src="https://cdn.pixabay.com/download/audio/2022/12/26/audio_7ebf05e400.mp3" type="audio/mpeg">
 </audio>
-<!-- ❄️ КНОПКА ПЕРЕКЛЮЧЕНИЯ ЯЗЫКА ❄️ -->
+
+<!-- Переключатель языка -->
 <div class="lang-switch" onclick="toggleLang()">RU / EN</div>
-<script>
-  let isPlaying = false;
-  const music = document.getElementById("bgMusic");
 
-  function toggleMusic() {
-    if (isPlaying) {
-      music.pause();
-      isPlaying = false;
-      document.querySelector(".music-btn").innerHTML = "🔔 Музыка";
-    } else {
-      music.volume = 0.7;
-      music.play();
-      isPlaying = true;
-      document.querySelector(".music-btn").innerHTML = "🔕 Выключить";
-    }
-  }
-</script>
-<!-- ❄️ СНЕЖИНКИ ❄️ -->
-<script>
-  const snowflakes = 40;
-
-  for (let i = 0; i < snowflakes; i++) {
-    let flake = document.createElement("div");
-    flake.className = "snowflake";
-    flake.textContent = "❄";
-    flake.style.left = Math.random() * 100 + "vw";
-    flake.style.fontSize = (Math.random() * 14 + 10) + "px";
-    flake.style.animationDuration = (Math.random() * 8 + 6) + "s";
-    flake.style.animationDelay = Math.random() * 5 + "s";
-    document.body.appendChild(flake);
-  }
-
-  /* === ЛОГИКА ПЕРЕКЛЮЧЕНИЯ ЯЗЫКА === */
-  let currentLang = "ru";
-
-  function toggleLang() {
-    currentLang = currentLang === "ru" ? "en" : "ru";
-
-    if (currentLang === "ru") {
-      document.getElementById("title").innerHTML = "🎄 Привет! Я Карло 🎅";
-      document.getElementById("subtitle").innerHTML = "Тут собраны мои контакты и ссылки.";
-    } else {
-      document.getElementById("title").innerHTML = "🎄 Hello! I’m Carlo 🎅";
-      document.getElementById("subtitle").innerHTML = "Here are my contacts and links.";
-    }
-  }
-</script>
-
+<!-- Контент -->
 <div class="container">
   <h1 id="title">🎄 Привет! Я Карло 🎅</h1>
   <p id="subtitle">Тут собраны мои контакты. Желаю тебе волшебных праздников! ✨</p>
@@ -219,6 +170,52 @@
     <a href="https://t.me/CarloLitvinenko" target="_blank">Telegram Channel</a>
   </div>
 </div>
+
+<script>
+  /* === Снег === */
+  for (let i = 0; i < 40; i++) {
+    let flake = document.createElement("div");
+    flake.className = "snowflake";
+    flake.textContent = "❄";
+    flake.style.left = Math.random() * 100 + "vw";
+    flake.style.fontSize = (Math.random() * 14 + 10) + "px";
+    flake.style.animationDuration = (Math.random() * 8 + 6) + "s";
+    flake.style.animationDelay = Math.random() * 5 + "s";
+    document.body.appendChild(flake);
+  }
+
+  /* === Музыка === */
+  let isPlaying = false;
+  const music = document.getElementById("bgMusic");
+
+  function toggleMusic() {
+    if (isPlaying) {
+      music.pause();
+      isPlaying = false;
+      document.querySelector(".music-btn").innerHTML = "🔔 Музыка";
+    } else {
+      music.volume = 0.6;
+      music.play();
+      isPlaying = true;
+      document.querySelector(".music-btn").innerHTML = "🔕 Выключить";
+    }
+  }
+
+  /* === Переключение языка === */
+  let currentLang = "ru";
+
+  function toggleLang() {
+    currentLang = currentLang === "ru" ? "en" : "ru";
+
+    if (currentLang === "ru") {
+      title.innerHTML = "🎄 Привет! Я Карло 🎅";
+      subtitle.innerHTML = "Тут собраны мои контакты. Желаю тебе волшебных праздников! ✨";
+    } else {
+      title.innerHTML = "🎄 Hello! I’m Carlo 🎅";
+      subtitle.innerHTML = "Here are my contacts. Wishing you magical holidays! ✨";
+    }
+  }
+</script>
 
 </body>
 </html>
