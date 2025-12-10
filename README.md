@@ -129,13 +129,53 @@
     }
   }
 </style>
+.music-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: 0.3s;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.5);
+}
+.music-btn:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,1);
+}
 </head>
 
 <body>
+<!-- 🔔 КНОПКА МУЗЫКИ -->
+<div class="music-btn" onclick="toggleMusic()">🔔 Музыка</div>
 
+<!-- 🎵 НОВОГОДНЯЯ МЕЛОДИЯ -->
+<audio id="bgMusic" loop>
+  <source src="https://cdn.jsdelivr.net/gh/CarloLit/music/christmas.mp3" type="audio/mpeg">
+</audio>
 <!-- ❄️ КНОПКА ПЕРЕКЛЮЧЕНИЯ ЯЗЫКА ❄️ -->
 <div class="lang-switch" onclick="toggleLang()">RU / EN</div>
+<script>
+  let isPlaying = false;
+  const music = document.getElementById("bgMusic");
 
+  function toggleMusic() {
+    if (isPlaying) {
+      music.pause();
+      isPlaying = false;
+      document.querySelector(".music-btn").innerHTML = "🔔 Музыка";
+    } else {
+      music.volume = 0.7;
+      music.play();
+      isPlaying = true;
+      document.querySelector(".music-btn").innerHTML = "🔕 Выключить";
+    }
+  }
+</script>
 <!-- ❄️ СНЕЖИНКИ ❄️ -->
 <script>
   const snowflakes = 40;
@@ -159,10 +199,10 @@
 
     if (currentLang === "ru") {
       document.getElementById("title").innerHTML = "🎄 Привет! Я Карло 🎅";
-      document.getElementById("subtitle").innerHTML = "Мои новогодние контакты и ссылки. Желаю тебе волшебных праздников! ✨";
+      document.getElementById("subtitle").innerHTML = "Тут собраны мои контакты и ссылки.";
     } else {
       document.getElementById("title").innerHTML = "🎄 Hello! I’m Carlo 🎅";
-      document.getElementById("subtitle").innerHTML = "My Christmas contacts and links. Wishing you magical holidays! ✨";
+      document.getElementById("subtitle").innerHTML = "Here are my contacts and links.";
     }
   }
 </script>
