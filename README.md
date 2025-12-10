@@ -153,7 +153,7 @@ p {
 <div class="lang-switch" onclick="toggleLang()">RU / EN</div>
 
 <!-- Аудио -->
-<audio id="bgMusic" loop>
+<audio id="bgMusic" loop preload="auto">
   <source src="https://cdn.pixabay.com/download/audio/2022/12/26/audio_7ebf05e400.mp3" type="audio/mpeg">
 </audio>
 
@@ -170,46 +170,46 @@ p {
 </div>
 
 <script>
-  /* === Снег === */
-  for (let i = 0; i < 40; i++) {
-    let flake = document.createElement("div");
-    flake.className = "snowflake";
-    flake.textContent = "❄";
-    flake.style.left = Math.random() * 100 + "vw";
-    flake.style.fontSize = (Math.random() * 14 + 10) + "px";
-    flake.style.animationDuration = (Math.random() * 8 + 6) + "s";
-    flake.style.animationDelay = Math.random() * 5 + "s";
+  // === Снег ===
+  for(let i=0; i<40; i++){
+    let flake=document.createElement("div");
+    flake.className="snowflake";
+    flake.textContent="❄";
+    flake.style.left=Math.random()*100+"vw";
+    flake.style.fontSize=(Math.random()*14+10)+"px";
+    flake.style.animationDuration=(Math.random()*8+6)+"s";
+    flake.style.animationDelay=Math.random()*5+"s";
     document.body.appendChild(flake);
   }
 
-  /* === Музыка === */
-  let isPlaying = false;
-  const music = document.getElementById("bgMusic");
-  function toggleMusic() {
-    if(isPlaying) {
+  // === Музыка ===
+  let isPlaying=false;
+  const music=document.getElementById("bgMusic");
+  function toggleMusic(){
+    if(isPlaying){
       music.pause();
-      isPlaying = false;
-      document.querySelector(".music-btn").innerHTML = "🔔 Музыка";
+      isPlaying=false;
+      document.querySelector(".music-btn").innerHTML="🔔 Музыка";
     } else {
-      music.volume = 0.6;
-      music.play();
-      isPlaying = true;
-      document.querySelector(".music-btn").innerHTML = "🔕 Выключить";
+      music.volume=0.6;
+      music.play().catch(e=>console.log("Ошибка воспроизведения:",e));
+      isPlaying=true;
+      document.querySelector(".music-btn").innerHTML="🔕 Выключить";
     }
   }
 
-  /* === Переключение языка === */
-  let currentLang = "ru";
-  function toggleLang() {
-    currentLang = currentLang === "ru" ? "en" : "ru";
-    const title = document.getElementById("title");
-    const subtitle = document.getElementById("subtitle");
-    if(currentLang === "ru") {
-      title.innerHTML = "🎄 Привет! Я Карло 🎅";
-      subtitle.innerHTML = "Тут собраны мои контакты. Желаю тебе волшебных праздников! ✨";
+  // === Переключение языка ===
+  let currentLang="ru";
+  function toggleLang(){
+    currentLang=currentLang==="ru"?"en":"ru";
+    const title=document.getElementById("title");
+    const subtitle=document.getElementById("subtitle");
+    if(currentLang==="ru"){
+      title.innerHTML="🎄 Привет! Я Карло 🎅";
+      subtitle.innerHTML="Тут собраны мои контакты. Желаю тебе волшебных праздников! ✨";
     } else {
-      title.innerHTML = "🎄 Hello! I’m Carlo 🎅";
-      subtitle.innerHTML = "Here are my contacts. Wishing you magical holidays! ✨";
+      title.innerHTML="🎄 Hello! I’m Carlo 🎅";
+      subtitle.innerHTML="Here are my contacts. Wishing you magical holidays! ✨";
     }
   }
 </script>
