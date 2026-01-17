@@ -6,7 +6,21 @@
   --muted: #4a6a4c;  /* второстепенный текст, мягкий */
   --radius: 18px;
 }
+.icon {
+  width: 56px;
+  height: 56px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(80, 160, 100, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
 
+.icon:hover {
+  transform: translateY(-6px) scale(1.08);
+  background: rgba(106, 175, 79, 0.35); /* и цвет при наведении тоже меняешь */
+  box-shadow: 0 14px 40px rgba(124, 92, 255, 0.2)}
+}
 * {
   box-sizing: border-box;
 }
