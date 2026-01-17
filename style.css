@@ -18,7 +18,7 @@
 
 .icon:hover {
   transform: translateY(-6px) scale(1.08);
-  background: rgba(106, 175, 79, 0.35); /* и цвет при наведении тоже меняешь */
+  background: rgba(106, 175, 79, 0.35);
   box-shadow: 0 14px 40px rgba(124, 92, 255, 0.2)}
 }
 * {
