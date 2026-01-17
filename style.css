@@ -11,21 +11,20 @@
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
+body, html {
   margin: 0;
-  font-family: Inter, system-ui, sans-serif;
-  color: var(--text);
-  background: linear-gradient(180deg, var(--bg1), var(--bg2));
+  padding: 0;
+  height: 100%;
 }
 
 .page {
   min-height: 100vh;
   display: grid;
-  place-items: center;
+  place-items: center; /* центрирует по горизонтали и вертикали */
+  padding: 3rem;
   position: relative;
   overflow: hidden;
-  padding: 2rem;
+  background: linear-gradient(180deg, var(--bg1), var(--bg2));
 }
 
 .bg::before,
