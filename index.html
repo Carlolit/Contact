@@ -1,144 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Контакты — Новый год</title>
-<style>
-<script src="https://cdn.counter.dev/script.js" data-id="5bf0efdf-00fa-44b9-9b37-d7339eee9541" data-utcoffset="2"></script>
- body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Rubik', sans-serif;
-  background: linear-gradient(-45deg, #9dd2ff, #cfe9ff, #f0faff, #b4e3ff);
-  background-size: 400% 400%;
-  animation: winterBG 15s ease infinite;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>spr1te</title>
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  min-height: 100vh;
-  overflow: hidden;
-  color: #333;
-}
-
-  @keyframes winterBG {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-  }
-
-  
-  h1 { font-size: 32px; color: #005cb2; margin-bottom: 20px; }
-  p { font-size: 17px; margin-bottom: 20px; }
-
-  .contacts a {
-    display: block;
-    margin: 12px 0;
-    text-decoration: none;
-    color: #fff;
-    background: linear-gradient(90deg, #e53935, #d32f2f);
-    padding: 14px 0;
-    border-radius: 15px;
-    font-size: 19px;
-    font-weight: 500;
-    transition: 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-  }
-  .contacts a:hover {
-    transform: scale(1.05);
-    background: linear-gradient(90deg, #b71c1c, #d32f2f);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  }
-
-  /* Кнопка переключения языка */
-  .lang-switch {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: rgba(255,255,255,0.85);
-    border-radius: 12px;
-    padding: 10px 18px;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: 0.3s;
-    z-index: 999;
-  }
-  .lang-switch:hover { background: rgba(255,255,255,1); transform: scale(1.05); }
-
-  
-  /* Снег */
-  .snowflake {
-    position: fixed;
-    top: -10px;
-    color: white;
-    user-select: none;
-    animation: snowfall linear infinite;
-    opacity: 0.8;
-    font-size: 1em;
-  }
-  @keyframes snowfall { to { transform: translateY(110vh); opacity: 0.2; } }
-
-  /* Прячем стандартный плеер */
-  audio {
-    display: none;
-  }
-
-</style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="lang-switch" onclick="toggleLang()">RU / EN</div>
+  <main class="page">
+    <div class="bg"></div>
 
-<div class="container">
-  <h1 id="title">🎄 Привет! Я Карло 🎅</h1>
-  <p id="subtitle">Тут собраны мои контакты. Желаю тебе волшебных праздников! ✨</p>
+    <section class="card">
+      <div class="avatar-wrap">
+        <img src="avatar.jpg" alt="spr1te">
+      </div>
 
- 
+      <h1 class="name">spr1te</h1>
+      <p class="subtitle">тут могла бы быть ваша реклама</p>
 
-  <div class="contacts">
-    <a 
-href="https://t.me/M4aka" target="_blank">Telegram</a>
-    <a href="https://vk.com/kak_dela_carlo/" target="_blank">VK</a>
-    <a href="https://t.me/CarloLitvinenko" target="_blank">Telegram channel</a>
-    <a
-href="https://t.me/pythoncarlo/"
-target="_blank">personal telegram</a>
-<a
-target="_blank">Discord-carlo_litvinenko</a>
-  </div>
-</div>
-
-<script>
-  // Снег
-  for (let i = 0; i < 40; i++) {
-    let flake = document.createElement("div");
-    flake.className = "snowflake";
-    flake.textContent = "❄";
-    flake.style.left = Math.random() * 100 + "vw";
-    flake.style.fontSize = (Math.random() * 14 + 10) + "px";
-    flake.style.animationDuration = (Math.random() * 8 + 6) + "s";
-    flake.style.animationDelay = Math.random() * 5 + "s";
-    document.body.appendChild(flake);
-  }
-
-  
-
-  // Переключение языка
-  let currentLang = "ru";
-  function toggleLang() {
-    currentLang = currentLang === "ru" ? "en" : "ru";
-
-    if (currentLang === "ru") {
-      title.innerText = "🎄 Привет! Я Карло 🎅";
-      subtitle.innerText = "Тут собраны мои контакты. Желаю тебе волшебных праздников! ✨";
-    } else {
-      title.innerText = "🎄 Hello! I’m Carlo 🎅";
-      subtitle.innerText = "Here are my contacts. Wishing you magical holidays! ✨";
-    }
-  }
-</script>
+      <div class="links">
+        <a href="https://t.me/" target="_blank">TG</a>
+        <a href="https://github.com/" target="_blank">GH</a>
+      </div>
+    </section>
+  </main>
 
 </body>
 </html>
