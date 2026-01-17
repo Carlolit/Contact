@@ -110,13 +110,12 @@ body, html {
   border-radius: 12px;
   text-decoration: none;
   color: var(--text);
-  background: rgba(255,255,255,0.05); /* полупрозрачный фон */
-  transition: all 0.3s ease; /* плавное изменение */
+  background: rgba(106, 175, 79, 0.2); /* зелёный, но ярче и заметнее */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
-/* Подсветка при наведении */
 .links a:hover {
-  background: rgba(255,255,255,0.15); /* фон ярче */
-  box-shadow: 0 8px 25px rgba(124,92,255,0.3); /* легкая тень */
-  transform: translateY(-3px) scale(1.05); /* чуть поднимается */
+  transform: translateY(-4px) scale(1.05);
+  background: rgba(106, 175, 79, 0.35); /* при наведении светлее */
+  box-shadow: 0 12px 35px rgba(124, 92, 255, 0.4);
 }
