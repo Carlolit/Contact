@@ -1,90 +1,41 @@
 :root {
-  --bg1: #c3e6ce;   /* светлый пастельный зелёный, чуть светлее */
-  --bg2: #b0dfba;   /* плавный градиент, мягкий переход */
-  --accent: #7bbf63; /* акцент, чуть светлее и мягче */
-  --text: #26482f;   /* тёмно-зелёный для текста, контраст достаточный */
-  --muted: #4a6a4c;  /* второстепенный текст, мягкий */
+  --bg1: #c3e6ce;   /* светлый пастельный зелёный */
+  --bg2: #b0dfba;   /* чуть темнее, градиент */
+  --accent: #7bbf63; /* акцент для кнопок и рамок */
+  --text: #26482f;   /* тёмный зелёный для текста */
+  --muted: #4a6a4c;  /* для второстепенного текста */
   --radius: 18px;
 }
-.icon {
-  width: 56px;
-  height: 56px;
-  display: inline-grid;
-  place-items: center;
-  border-radius: 12px;
-  background: rgba(80, 160, 100, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-}
 
-.icon:hover {
-  transform: translateY(-6px) scale(1.08);
-  background: rgba(106, 175, 79, 0.35);
-  box-shadow: 0 14px 40px rgba(124, 92, 255, 0.2)}
-}
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body, html {
-  margin: 0;
-  padding: 0;
   height: 100%;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
 }
-.page {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding-top: 5rem; /* поднимает всю карточку выше */
 
-  position: relative;
-  overflow: hidden;
+.page {
+  display: flex;
+  justify-content: center; /* горизонтально */
+  align-items: center;     /* вертикально */
+  min-height: 100vh;
   background: linear-gradient(180deg, var(--bg1), var(--bg2));
 }
 
-.bg::before,
-.bg::after {
-  content: "";
-  position: absolute;
-  width: 60vmax;
-  height: 60vmax;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.6;
-}
-
-.bg::before {
-  top: -20%;
-  left: -20%;
-  background: rgba(124, 92, 255, 0.2);
-}
-
-.bg::after {
-  bottom: -20%;
-  right: -20%;
-  background: rgba(0, 212, 255, 0.2);
-}
-
 .card {
-  position: relative;
-  z-index: 1;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(6px);
-  border-radius: var(--radius);
+  max-width: 540px;
+  width: 90%;
   padding: 3rem;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
   text-align: center;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-  animation: pop 0.6s ease-out;
-}
-
-@keyframes pop {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
 }
 
 .avatar-wrap {
@@ -119,17 +70,18 @@ body, html {
   justify-content: center;
   gap: 1rem;
 }
+
 .links a {
   padding: 0.6rem 1.2rem;
   border-radius: 12px;
   text-decoration: none;
   color: var(--text);
-  background: rgba(106, 175, 79, 0.2); /* зелёный, но ярче и заметнее */
+  background: rgba(106, 175, 79, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .links a:hover {
   transform: translateY(-4px) scale(1.05);
-  background: rgba(106, 175, 79, 0.35); /* при наведении светлее */
+  background: rgba(106, 175, 79, 0.35);
   box-shadow: 0 12px 35px rgba(124, 92, 255, 0.4);
 }
